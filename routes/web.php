@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\FrontendController;
+use App\Http\Controllers\dashboard\servicesController;
 use App\Http\Controllers\dashboard\dashboardController;
 
 
@@ -30,7 +31,10 @@ use App\Http\Controllers\dashboard\dashboardController;
  Route::get('/main', [ dashboardController::class, 'main']) -> name('main.page');
  Route::put('/main', [ dashboardController::class, 'update']) -> name('main.update');
 
-
+// Services section route
+ Route::get('/services/list', [ servicesController::class, 'servicesList']) -> name('show.services.list');
+ Route::get('/services', [ servicesController::class, 'showServicesPage']) -> name('show.services.page');
+ Route::post('/services', [ servicesController::class, 'services']) -> name('services.page');
 
 
 

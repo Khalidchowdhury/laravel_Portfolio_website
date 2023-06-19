@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\Models\service;
 use App\Models\mainPage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -60,23 +61,6 @@ class dashboardController extends Controller
         
     }
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
