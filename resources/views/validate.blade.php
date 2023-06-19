@@ -8,14 +8,11 @@
 @endif
 
 @if ( Session::has('success') )
-    <p class="alert alert-success">
+    <p class="alert alert-success alert-dismissible fade show" role="alert">
         {{ Session::get('success') }}
-        <button class="close" data-dismiss="alert">
-            &times;
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </p>
 @endif
-
 
 
 @if ( Session::has('warning') )

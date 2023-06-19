@@ -13,6 +13,7 @@ class mainPage extends Model
         'title',
         'subtitle',
         'button_name',
-        'button_url'
+        'button_url',
+        'logo'
     ];
 }

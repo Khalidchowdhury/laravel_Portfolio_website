@@ -42,16 +42,22 @@ class dashboardController extends Controller
         $mainPages->subtitle = $request->subtitle; 
         $mainPages->button_name = $request->button_name; 
         $mainPages->button_url = $request->button_url; 
-
+        // background image
         if($request->file('header_img')){
             $img_file = $request->file('header_img');
             $img_file->storeAs('public/img/','header_img' . $img_file->getClientOriginalExtension());
             $mainPages->header_img = 'storage/img/header_img' . $img_file->getClientOriginalExtension();
         }
+        if($request->file('logo')){
+            $img_file = $request->file('logo');
+            $img_file->storeAs('public/img/','navbar-logo' . $img_file->getClientOriginalExtension());
+            $mainPages->logo = 'storage/img/navbar-logo' . $img_file->getClientOriginalExtension();
+        }
 
         $mainPages->save();
-        
+
         return redirect() -> route('main.page') -> with('success', 'Your Data are saved');
+        
     }
     
 

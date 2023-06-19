@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('subtitle');
             $table->string('button_name');
             $table->string('button_url');
+            $table->string('logo');
             $table->timestamps();
         });
     }
