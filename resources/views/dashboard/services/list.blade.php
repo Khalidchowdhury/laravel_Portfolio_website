@@ -26,7 +26,7 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($services as $service )
+                        @forelse ( $services as $service )
                           <tr>
                             <th>{{ $loop -> index+1 }}</th>
                             <td>{{ $service -> icon }}</td>
@@ -35,16 +35,18 @@
                             <td>
                                 <div class="btn-group align-top mt-3">
                                     <button class="btn btn-sm btn-primary badge" type="button" data-toggle="modal" data-target="#user-form-modal">
-                                      <a class="text-light text-decoration-none" href="{{ route('services.edit.page') }}">Edit</a></button>
+                                      <a class="text-light text-decoration-none" href="{{ route('showServices.edit', $service -> id) }}">Edit</a></button>
                                     <button class="btn btn-sm btn-danger badge" type="button">
-                                      <a href="{{ route('services.delete.page', $service -> id) }}">
-                                        <i class="fa fa-trash"></i>
-                                      </a>
+                                      <a href="{{ route('services.delete.page', $service -> id) }}"><i class="fa fa-trash text-light"></i></a>
                                     </button>
                                 </div>
                             </td>
                           </tr>
-                        @endforeach
+                        @empty
+                          <tr>
+                            <td colspan="6" class="text-center p-3 text-primary"><h4>No Services Found</h4></td>
+                          </tr>
+                        @endforelse
 
                     </tbody>
                   </table>

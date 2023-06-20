@@ -25,21 +25,21 @@
                         {{-- Services Font awesome Icon --}}
                         <div class="form-group col-md-3 mt-3">
                             <h6>Font Awesome Icon</h6>
-                            <input type="text" name="icon" class="form-control">
+                            <input type="text" name="icon" class="form-control" value="{{ old('icon') }}">
                         </div>  
                     </div>
                     <div class="row">
                         {{-- Services Title --}}
                         <div class="form-group col-md-3 mt-3">
                             <h6>Title</h6>
-                            <input type="text" name="title" class="form-control">
+                            <input type="text" name="title" class="form-control" value="{{ old('title') }}">
                         </div>
                     </div>
                     <div class="row">                     
                         {{-- Services Description --}}
                         <div class="form-group col-md-3 mt-3">
                             <h6>Description</h6>
-                            <textarea type="text" name="description" class="form-control"></textarea>
+                            <textarea type="text" name="description" class="form-control" value="{{ old('description') }}"></textarea>
                         </div> 
                     </div>
 
