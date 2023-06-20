@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\contactController;
 use App\Http\Controllers\dashboard\gallaryController;
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\dashboard\servicesController;
@@ -48,6 +49,15 @@ Route::controller(gallaryController::class)->group(function () {
     Route::get('/portfolio/store', 'store') -> name('portfolio.store.page');
     Route::get('/portfolio/delete/{id}', 'delete') -> name('portfolio.delete.page');
 });
+
+
+    // Contact Form 
+Route::controller(contactController::class)->group(function () {
+    Route::get('/contact', 'showContact') -> name('contact.page');
+    Route::post('/contact', 'createContact') -> name('contact.create');
+    Route::get('/delete/{id}', 'delete') -> name('contact.delete');
+});
+
 
 
 

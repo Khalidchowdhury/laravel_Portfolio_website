@@ -28,25 +28,31 @@
                     </thead>
                     <tbody>
                       
-                          @foreach ( $gallarys as $gallary )
-                            <tr>
-                              <td width="200"><img class="img-fluid" src="{{ url( $gallary->image ) }}" /></td>
-                              <td width="200">{{ $gallary->title }}</td>
-                              <td width="250">{{ $gallary->subtitle }}</td>
-                              <td width="400">{{ $gallary->description }}</td>
-                              <td>{{ $gallary->client }}</td>
-                              <td>{{ $gallary->category }}</td>
-                              <td class="text-center" width="100">
-                                  <div class="btn-group align-top mt-3">
-                                      <button class="btn btn-sm btn-primary badge" type="button" data-toggle="modal" data-target="#user-form-modal">
-                                        <a class="text-light text-decoration-none" href="#">Edit</a></button>
-                                      <button class="btn btn-sm btn-danger badge" type="button">
-                                        <a href="{{ route('portfolio.delete.page', $gallary -> id ) }}"><i class="fa fa-trash text-light"></i></a>
-                                      </button>
-                                  </div>
-                              </td>
-                            </tr>
-                          @endforeach
+
+                    @forelse ( $gallarys as $gallary )
+                      <tr>
+                        <td width="200"><img class="img-fluid" src="{{ url( $gallary->image ) }}" /></td>
+                        <td width="200">{{ $gallary->title }}</td>
+                        <td width="250">{{ $gallary->subtitle }}</td>
+                        <td width="400">{{ $gallary->description }}</td>
+                        <td>{{ $gallary->client }}</td>
+                        <td>{{ $gallary->category }}</td>
+                        <td class="text-center" width="100">
+                            <div class="btn-group align-top mt-3">
+                                <button class="btn btn-sm btn-primary badge" type="button" data-toggle="modal" data-target="#user-form-modal">
+                                  <a class="text-light text-decoration-none" href="#">Edit</a></button>
+                                <button class="btn btn-sm btn-danger badge" type="button">
+                                  <a href="{{ route('portfolio.delete.page', $gallary -> id ) }}"><i class="fa fa-trash text-light"></i></a>
+                                </button>
+                            </div>
+                        </td>
+                      </tr>
+                    @empty
+                      <tr>
+                        <td colspan="6" class="text-center p-3 text-primary"><h4>No Services Found</h4></td>
+                      </tr>
+                    @endforelse
+
 
                     </tbody>
                   </table>

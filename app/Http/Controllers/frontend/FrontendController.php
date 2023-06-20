@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\gallary;
 use App\Models\service;
 use App\Models\mainPage;
 use Illuminate\Http\Request;
@@ -19,7 +20,8 @@ class FrontendController extends Controller
     public function index(){
         $services = service::get();
         $mainPages = mainPage::first();
-        return view('frontend.index', compact('mainPages', 'services'));
+        $gallarys = gallary::get();
+        return view('frontend.index', compact('mainPages', 'services', 'gallarys'));
     }
 
 
