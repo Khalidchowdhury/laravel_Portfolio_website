@@ -5,8 +5,16 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
 
+                    
                     {{-- Application page Menu Sidebar --}}
-                    <div class="sb-sidenav-menu-heading">Pages</div>
+                    <div class="sb-sidenav-menu-heading">Your Site </div>
+                    <a class="nav-link" href="{{ route('index.page') }}" target="_blank">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        View Site
+                    </a>
+
+                    {{-- Application page Menu Sidebar --}}
+                    <div class="sb-sidenav-menu-heading">All Section</div>
                     <a class="nav-link" href="{{ route('home.page') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
@@ -27,14 +35,6 @@
                                 <a class="nav-link" href="{{ route('show.services.list') }}">List</a>
                             </nav>
                         </div>
-
-
-
-
-
-
-
-
 
                         
                     <a class="nav-link" href="index.html">
@@ -101,16 +101,6 @@
                         </nav>
                     </div>
 
-                    {{-- Setting Menu Sidebar --}}
-                    <div class="sb-sidenav-menu-heading">Addons</div>
-                    <a class="nav-link" href="charts.html">
-                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Charts
-                    </a>
-                    <a class="nav-link" href="{{ route('index.page') }}" target="_blank">
-                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        View Site
-                    </a>
                 </div>
             </div>
         </nav>
