@@ -14,7 +14,6 @@
                 
                 <h1 class="mt-4">Services List</h1>
 
-
                 <table class="table mt-5 p-5">
                     <thead>
                       <tr>
@@ -32,11 +31,16 @@
                             <th>{{ $loop -> index+1 }}</th>
                             <td>{{ $service -> icon }}</td>
                             <td>{{ $service -> title }}</td>
-                            <td width="400">{{ $service -> description }}</td>
+                            <td width="600">{{ $service -> description }}</td>
                             <td>
                                 <div class="btn-group align-top mt-3">
-                                    <button class="btn btn-sm btn-primary badge" type="button" data-toggle="modal" data-target="#user-form-modal">Edit</button>
-                                    <button class="btn btn-sm btn-danger badge" type="button"><i class="fa fa-trash"></i></button>
+                                    <button class="btn btn-sm btn-primary badge" type="button" data-toggle="modal" data-target="#user-form-modal">
+                                      <a class="text-light text-decoration-none" href="{{ route('services.edit.page') }}">Edit</a></button>
+                                    <button class="btn btn-sm btn-danger badge" type="button">
+                                      <a href="{{ route('services.delete.page', $service -> id) }}">
+                                        <i class="fa fa-trash"></i>
+                                      </a>
+                                    </button>
                                 </div>
                             </td>
                           </tr>

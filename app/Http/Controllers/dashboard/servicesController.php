@@ -55,6 +55,43 @@ class servicesController extends Controller
 
 
 
+    // services edit page
+    public function servicesEdit()
+    {
+        return view('dashboard.services.edit');
+    }
+
+
+
+    // student delete
+    public function servicesDelete($id)
+    {
+        $delete_data = service::findOrFail($id);
+        $delete_data -> delete();
+
+        return redirect() -> route('show.services.list') -> with('success', 'Your Account Has Been Delete Successfully');
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
