@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\dashboard\gallaryController;
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\dashboard\servicesController;
 use App\Http\Controllers\dashboard\dashboardController;
@@ -10,37 +11,43 @@ use App\Http\Controllers\dashboard\dashboardController;
 
 
 /**
- * 
  * Frontend Routeing setup
- * 
  */
 
- Route::get('/', [ FrontendController::class, 'index']) -> name('index.page');
-
-
+ Route::controller(FrontendController::class)->group(function () { 
+    Route::get('/', 'index') -> name('index.page');
+});
 
 
  /**
-  * 
   * Dashboard Routing setup
-  * 
   */
- Route::get('/home', [ dashboardController::class, 'home']) -> name('home.page');
 
-// Main Page make dynaimic
- Route::get('/main', [ dashboardController::class, 'main']) -> name('main.page');
- Route::put('/main', [ dashboardController::class, 'update']) -> name('main.update');
-
-// Services section route
- Route::get('/services/list', [ servicesController::class, 'servicesList']) -> name('show.services.list');
- Route::get('/services', [ servicesController::class, 'showServicesPage']) -> name('show.services.page');
- Route::post('/services', [ servicesController::class, 'services']) -> name('services.page');
- Route::get('/services/edit/{id}', [ servicesController::class, 'showServicesEdit']) -> name('showServices.edit');
- Route::post('/services/update/{id}', [ servicesController::class, 'ServicesUpdate']) -> name('services.update.page');
- Route::get('/services/delete/{id}', [ servicesController::class, 'servicesDelete']) -> name('services.delete.page');
+ Route::controller(dashboardController::class)->group(function () {
+    Route::get('/home', 'home') -> name('home.page');
+    Route::get('/main', 'main') -> name('main.page');
+    Route::put('/main', 'update') -> name('main.update');
+});
 
 
+    // Services Controller route
+Route::controller(servicesController::class)->group(function () {
+    Route::get('/services/list', 'servicesList') -> name('show.services.list');
+    Route::get('/services', 'showServicesPage') -> name('show.services.page');
+    Route::post('/services', 'services') -> name('services.page');
+    Route::get('/services/edit/{id}', 'showServicesEdit') -> name('showServices.edit');
+    Route::post('/services/update/{id}', 'ServicesUpdate') -> name('services.update.page');
+    Route::get('/services/delete/{id}', 'servicesDelete') -> name('services.delete.page');
+});
 
+
+    // Portfolio Controller 
+Route::controller(gallaryController::class)->group(function () {
+    Route::get('/portfolio/index', 'index') -> name('portfolio.index.page');
+    Route::put('/portfolio/create', 'create') -> name('portfolio.create.page');
+    Route::get('/portfolio/store', 'store') -> name('portfolio.store.page');
+    Route::get('/portfolio/delete/{id}', 'delete') -> name('portfolio.delete.page');
+});
 
 
 
