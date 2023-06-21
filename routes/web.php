@@ -6,6 +6,7 @@ use App\Http\Controllers\dashboard\gallaryController;
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\dashboard\servicesController;
 use App\Http\Controllers\dashboard\dashboardController;
+use App\Http\Controllers\dashboard\TeamController;
 
 
 
@@ -18,7 +19,6 @@ use App\Http\Controllers\dashboard\dashboardController;
  Route::controller(FrontendController::class)->group(function () { 
     Route::get('/', 'index') -> name('index.page');
 });
-
 
  /**
   * Dashboard Routing setup
@@ -58,6 +58,60 @@ Route::controller(contactController::class)->group(function () {
     Route::post('/contact', 'createContact') -> name('contact.create');
     Route::get('/delete/{id}', 'delete') -> name('contact.delete');
 });
+
+
+
+    // Team Section 
+Route::controller(TeamController::class)->group(function () {
+    Route::get('team/index', 'index') -> name('team.index.page');
+    Route::put('team/create', 'create') -> name('team.create.page');
+    Route::get('team/store', 'store') -> name('team.store.page');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
