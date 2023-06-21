@@ -60,21 +60,16 @@ class gallaryController extends Controller
         return view('dashboard.portfolio.store', compact('gallarys'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
-     * Update the specified resource in storage.
+     * Store a newly created resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function view($id)
     {
-        //
+        $gallarys = gallary::findOrFail($id);
+        return view('dashboard.portfolio.view', compact('gallarys'));
     }
+
 
     /**
      * Remove the specified resource from storage.

@@ -47,6 +47,7 @@ Route::controller(gallaryController::class)->group(function () {
     Route::get('/portfolio/index', 'index') -> name('portfolio.index.page');
     Route::put('/portfolio/create', 'create') -> name('portfolio.create.page');
     Route::get('/portfolio/store', 'store') -> name('portfolio.store.page');
+    Route::get('/portfolio/view/{id}', 'view') -> name('portfolio.view.page');
     Route::get('/portfolio/delete/{id}', 'delete') -> name('portfolio.delete.page');
 });
 

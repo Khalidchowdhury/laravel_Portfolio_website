@@ -24,7 +24,7 @@
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <tbody>
+                <tbody>
                       
 
                       @forelse ( $contacts as $contact )

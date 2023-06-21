@@ -41,4 +41,6 @@ class contactController extends Controller
         return redirect() -> route('contact.page') -> with('success', 'Your Account Has Been Delete Successfully');
     }
 
+    
+
 }

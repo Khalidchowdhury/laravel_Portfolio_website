@@ -31,7 +31,7 @@
                             <th>{{ $loop -> index+1 }}</th>
                             <td>{{ $service -> icon }}</td>
                             <td>{{ $service -> title }}</td>
-                            <td width="600">{{ $service -> description }}</td>
+                            <td width="500">{{ $service -> description }}</td>
                             <td>
                                 <div class="btn-group align-top mt-3">
                                     <button class="btn btn-sm btn-primary badge" type="button" data-toggle="modal" data-target="#user-form-modal">
