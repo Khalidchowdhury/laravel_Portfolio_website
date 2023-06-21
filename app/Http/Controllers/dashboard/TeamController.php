@@ -51,50 +51,28 @@ class TeamController extends Controller
 
         
         $teams->save();
-        return redirect() -> route('team.store.page') -> with('success','your data is added');
+        return redirect() -> route('team.store.page') -> with('success','your Team has been added');
         
         
     }
-
-
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        return view('dashboard.team.store');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+        $teams = Team::get();
+        return view('dashboard.team.store', compact('teams'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete($id)
     {
-        //
+        $delete_data = Team::findOrFail($id);
+        $delete_data -> delete();
+        
+        return redirect()->route('team.store.page')->with('success','your Team has been deleted');
     }
 }

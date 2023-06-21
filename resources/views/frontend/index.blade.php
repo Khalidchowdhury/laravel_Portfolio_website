@@ -153,16 +153,18 @@
                     </div>
                     <div class="row">
                         
-                        <div class="col-lg-4">
-                            <div class="team-member">
-                                <img class="mx-auto rounded-circle" src="/frontend/assets/img/team/1.jpg" alt="..." />
-                                <h4>Parveen Anand</h4>
-                                <p class="text-muted">Lead Designer</p>
-                                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                        @foreach ( $teams as $team )
+                            <div class="col-lg-4">
+                                <div class="team-member">
+                                    <img class="mx-auto rounded-circle" src="{{ $team->hero_image }}"/>
+                                    <h4>{{ $team->name }}</h4>
+                                    <p class="text-muted">{{ $team->skill }}</p>
+                                    <a class="btn btn-dark btn-social mx-2" href="{{ $team->social1_link }}" aria-label="Parveen Anand Twitter Profile"><i class="{{ $team->social1_name }}"></i></a>
+                                    <a class="btn btn-dark btn-social mx-2" href="{{ $team->social2_link }}" aria-label="Parveen Anand Facebook Profile"><i class="{{ $team->social2_name }}"></i></a>
+                                    <a class="btn btn-dark btn-social mx-2" href="{{ $team->social3_link }}" aria-label="Parveen Anand LinkedIn Profile"><i class="{{ $team->social3_name }}"></i></a>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
 
                     </div>
                 </div>

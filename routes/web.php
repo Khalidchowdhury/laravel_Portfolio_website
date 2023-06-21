@@ -66,6 +66,7 @@ Route::controller(TeamController::class)->group(function () {
     Route::get('team/index', 'index') -> name('team.index.page');
     Route::put('team/create', 'create') -> name('team.create.page');
     Route::get('team/store', 'store') -> name('team.store.page');
+    Route::get('team/delete/{id}', 'delete') -> name('team.delete.page');
 });
 
 

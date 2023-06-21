@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\Team;
 use App\Models\gallary;
 use App\Models\service;
 use App\Models\mainPage;
@@ -21,7 +22,8 @@ class FrontendController extends Controller
         $services = service::get();
         $mainPages = mainPage::first();
         $gallarys = gallary::get();
-        return view('frontend.index', compact('mainPages', 'services', 'gallarys'));
+        $teams = Team::get();
+        return view('frontend.index', compact('mainPages', 'services', 'gallarys', 'teams'));
     }
 
 
